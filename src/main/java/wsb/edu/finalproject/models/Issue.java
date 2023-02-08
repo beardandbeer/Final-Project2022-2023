@@ -2,7 +2,6 @@ package wsb.edu.finalproject.models;
 
 import lombok.Data;
 
-import javax.annotation.Priority;
 import javax.persistence.*;
 import java.util.Date;
 
@@ -20,7 +19,7 @@ public class Issue {
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    private wsb.edu.finalproject.models.Priority priority ;
+    private Priority priority = Priority.NORMAL;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
