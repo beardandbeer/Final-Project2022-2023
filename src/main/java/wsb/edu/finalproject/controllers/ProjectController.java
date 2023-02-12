@@ -3,8 +3,7 @@ package wsb.edu.finalproject.controllers;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import wsb.edu.finalproject.models.Project;
 import wsb.edu.finalproject.repository.ProjectRepository;
@@ -17,7 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ProjectController {
 
-  private final ProjectService projectService;
+    private final ProjectService projectService;
 
     @GetMapping
     ModelAndView index() {
@@ -27,6 +26,7 @@ public class ProjectController {
 
         return modelAndView;
     }
+
     @GetMapping("/create")
     ModelAndView create() {
         ModelAndView modelAndView = new ModelAndView("projects/create");
@@ -36,5 +36,12 @@ public class ProjectController {
 
         return modelAndView;
     }
-
+    @PostMapping("/save")
+    ModelAndView save(@ModelAttribute Project project){
+        projectService.save(project
+        );
+        ModelAndView modelAndView = new ModelAndView("projects/create");
+        return modelAndView;
+    }
 }
+

@@ -9,12 +9,15 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class ProjectService {
+public final class ProjectService {
+
 
     private final ProjectRepository projectRepository;
 
-    public List<Project> findall(){
-
+    public List<Project> findall() {
         return projectRepository.findAll();
+    }
+    public Project save(Project project){
+        return projectRepository.save(new Project());
     }
 }
