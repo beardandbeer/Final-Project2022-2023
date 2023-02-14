@@ -1,4 +1,4 @@
-package wsb.edu.finalproject.models;
+package wsb.edu.finalproject.person;
 
 import lombok.Data;
 
@@ -8,7 +8,7 @@ import java.util.Set;
 @Data
 public class Person {
     @Id
-    @GeneratedValue
+    @GeneratedValue (strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(nullable = false, unique = true)
@@ -26,6 +26,6 @@ public class Person {
     @JoinTable(name = "person_authorities",
             joinColumns = @JoinColumn(name = "person_id"),
             inverseJoinColumns = @JoinColumn(name = "authority_id"))
-    private Set<Authority> authorities;
+    Set<Authority> authorities;
 
 }

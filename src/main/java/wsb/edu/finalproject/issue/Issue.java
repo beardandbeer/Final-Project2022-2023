@@ -1,6 +1,11 @@
-package wsb.edu.finalproject.models;
+package wsb.edu.finalproject.issue;
 
 import lombok.Data;
+import wsb.edu.finalproject.person.Person;
+import wsb.edu.finalproject.project.Priority;
+import wsb.edu.finalproject.project.Status;
+import wsb.edu.finalproject.project.Type;
+import wsb.edu.finalproject.project.Project;
 
 import javax.persistence.*;
 import java.util.Date;
