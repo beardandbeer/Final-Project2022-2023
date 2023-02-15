@@ -1,9 +1,7 @@
-package wsb.edu.finalproject.services;
+package wsb.edu.finalproject.project;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import wsb.edu.finalproject.models.Project;
-import wsb.edu.finalproject.repository.ProjectRepository;
 
 import java.util.List;
 
@@ -17,7 +15,12 @@ public final class ProjectService {
     public List<Project> findall() {
         return projectRepository.findAll();
     }
-    public Project save(Project project){
-        return projectRepository.save(new Project());
+
+
+    public Project save(Project project) {
+        projectRepository.save(project);
+        return project;
     }
 }
+
+

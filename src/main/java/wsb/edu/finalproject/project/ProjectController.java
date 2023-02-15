@@ -1,15 +1,10 @@
-package wsb.edu.finalproject.controllers;
+package wsb.edu.finalproject.project;
 
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import wsb.edu.finalproject.models.Project;
-import wsb.edu.finalproject.repository.ProjectRepository;
-import wsb.edu.finalproject.services.ProjectService;
-
-import java.util.List;
 
 @Controller
 @RequestMapping("/projects")
@@ -38,9 +33,8 @@ public class ProjectController {
     }
     @PostMapping("/save")
     ModelAndView save(@ModelAttribute Project project){
-        projectService.save(project
-        );
-        ModelAndView modelAndView = new ModelAndView("projects/create");
+        projectService.save(project);
+        ModelAndView modelAndView = new ModelAndView("redirect:/projects");
         return modelAndView;
     }
 }
