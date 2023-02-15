@@ -10,55 +10,55 @@
 </head>
 <body>
 <sectiono layout:fragment="custom-content">
-<div class="container">
+  <div class="container">
 
-  <h1 th:if="${project.id == null}">
-    Nowy projekt
-  </h1>
-  <h1 th:if="${project.id != null}">
-    Edycja projektu <span th:text="${project.code}"></span>
-  </h1>
+    <h1 th:if="${project.id == null}">
+      Nowy projekt
+    </h1>
+    <h1 th:if="${project.id != null}">
+      Edycja projektu <span th:text="${project.code}"></span>
+    </h1>
 
-  <form th:action="@{/projects/save}" th:object="${project}" method="post">
-    <input type="hidden" th:field="*{id}">
+    <form th:action="@{/projects/save}" th:object="${project}" method="post">
+      <input type="hidden" th:field="*{id}">
 
-    <div class="mb-3 row">
-      <div class="col-4">
-        <label for="project-name" class="form-label">
-          Nazwa
-        </label>
+      <div class="mb-3 row">
+        <div class="col-4">
+          <label for="project-name" class="form-label">
+            Nazwa
+          </label>
+        </div>
+
+        <div class="mb-3">
+          <input type="text" class="form-control" id="project-name" th:field="*{name}">
+        </div>
       </div>
 
       <div class="mb-3">
-        <input type="text" class="form-control" id="project-name" th:field="*{name}">
+        <label for="project-code" class="form-label">
+          Kod
+        </label>
+
+        <input type="text" class="form-control" id="project-code" th:field="*{code}">
       </div>
-    </div>
 
-    <div class="mb-3">
-      <label for="project-code" class="form-label">
-        Kod
-      </label>
+      <div class="mb-3">
+        <label for="project-description" class="form-label">
+          Opis
+        </label>
 
-      <input type="text" class="form-control" id="project-code" th:field="*{code}">
-    </div>
+        <textarea class="form-control" id="project-description" rows="10" th:field="*{description}"></textarea>
+      </div>
 
-    <div class="mb-3">
-      <label for="project-description" class="form-label">
-        Opis
-      </label>
+      <button type="submit" class="btn btn-primary">
+        Zapisz
+      </button>
 
-      <textarea class="form-control" id="project-description" rows="10" th:field="*{description}"></textarea>
-    </div>
-
-    <button type="submit" class="btn btn-primary">
-      Zapisz
-    </button>
-
-    <a th:href="@{/templates/projects/projects}" class="btn btn-secondary">
-      Anuluj
-    </a>
-  </form>
-</div>
+      <a th:href="@{/templates/projects/projects}" class="btn btn-secondary">
+        Anuluj
+      </a>
+    </form>
+  </div>
 </sectiono>>
 </body>
 </html>
